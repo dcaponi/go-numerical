@@ -34,6 +34,9 @@ func Det(mat [][]float64) (float64, error) {
 	if len(mat) != len(mat[0]) {
 		return 0.0, errors.New("determinant can only be performed on square matrices")
 	}
+	if len(mat) == 1 {
+		return (mat[0][0]), nil
+	}
 	if len(mat) == 2 {
 		return (mat[0][0] * mat[1][1]) - (mat[0][1] * mat[1][0]), nil
 	}
