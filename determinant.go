@@ -55,17 +55,17 @@ func Det(mat [][]float64) (float64, error) {
 	return s, nil
 }
 
-func subMat(mm [][]float64, p int) [][]float64 {
-	stacks := make([]stack, len(mm))
-	for i := range mm {
-		stacks[i] = stack{}
-		for j := range mm[i] {
+func subMat(mat [][]float64, p int) [][]float64 {
+	stacks := make([]stack, len(mat))
+	for n := range mat {
+		stacks[n] = stack{}
+		for j := range mat[n] {
 			if j != p {
-				stacks[i].push(mm[i][j])
+				stacks[n].push(mat[n][j])
 			}
 		}
 	}
-	out := make([][]float64, len(mm))
+	out := make([][]float64, len(mat))
 	for k := range stacks {
 		out[k] = stacks[k].ToSlice()
 	}
